@@ -116,7 +116,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+# setting to run application on EC2 without s3
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "static"
+
+# CORS header settings
+CORS_ORIGIN_ALLOW_ALL = config("CORS_ORIGIN_ALLOW_ALL")
+CORS_ALLOW_CREDENTIALS = config("CORS_ALLOW_CREDENTIALS")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
